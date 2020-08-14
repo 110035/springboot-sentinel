@@ -9,3 +9,11 @@ spring boot 2.x
 
 spring cloud alibaba sentinel 0.9.0.RELEASE
 
+#### 如何使用
+
+1. java -Dserver.port=9090  -jar sentinel-dashboard-1.7.2.jar 登录http://localhost:9090  sentinel/sentinel
+
+2. 启动项目main
+
+3. 按照dashboard指南添加规则
+

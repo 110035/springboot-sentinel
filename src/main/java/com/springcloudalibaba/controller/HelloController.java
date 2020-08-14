@@ -37,13 +37,13 @@ public class HelloController {
 
     @GetMapping("/hello3")
     @SentinelResource(value = "hotSpotLimit", blockHandler = "HotParamBlocked")
-    public Object hello3(@RequestParam("uid") Long uid) {
+    public Object hello3(@RequestParam(value = "uid",defaultValue = "1") Long uid) {
         urlBlocker.setCode(0);
         urlBlocker.setMsg("热点限流" + uid);
         return urlBlocker;
     }
 
-    public Object HotParamBlocked(@RequestParam("uid") Long uid, BlockException e) {
+    public Object HotParamBlocked(@RequestParam(value = "uid",defaultValue = "1") Long uid, BlockException e) {
         urlBlocker.setCode(999);
         urlBlocker.setMsg("热点" + uid + "被限流了");
         return urlBlocker;
